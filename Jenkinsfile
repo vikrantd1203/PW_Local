@@ -45,8 +45,9 @@ pipeline {
     post {
         always {
             script {
+                
                 // Stop BrowserStack Local after the tests
-                sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop'
+                // sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop'
             }
         }
     }
