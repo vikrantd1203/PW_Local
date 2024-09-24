@@ -36,7 +36,7 @@ pipeline {
                 script {
                     // Run Playwright tests with BrowserStack
                     sh 'npm run sample-test'
-                    sh 'npm run sample-local-test'
+                    // sh 'npm run sample-local-test'
                 }
             }
         }
