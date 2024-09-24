@@ -17,7 +17,7 @@ const caps = {
   browserName: "chrome",
   realMobile: "true",
   name: "My android playwright test",
-  build: "Local_Test",
+  build: "Local_PW_JenkinsBuild",
   "browserstack.username": process.env.BROWSERSTACK_USERNAME || "<USERNAME>",
   "browserstack.accessKey":
     process.env.BROWSERSTACK_ACCESS_KEY || "<ACCESS_KEY>",
