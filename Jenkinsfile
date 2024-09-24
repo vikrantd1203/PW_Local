@@ -14,7 +14,7 @@ pipeline {
                 {
                     sh 'wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-darwin-x64.zip"'
                     sh 'unzip BrowserStackLocal-darwin-x64.zip'
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
+                    sh 'BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                 // sh '<your_test_commands>'
                 // sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop's
                 }
