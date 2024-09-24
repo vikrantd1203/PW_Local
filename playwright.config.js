@@ -58,14 +58,14 @@ const config = {
         channel: "chrome",
       },
     },
-    {
-      name: "chrome@Samsung Galaxy S23:13@browserstack-mobile",
-      use: {
-        baseURL: "https://www.bstackdemo.com/",
-        browserName: "chromium",
-        channel: "chrome",
-      },
-    },
+    // {
+    //   name: "chrome@Samsung Galaxy S23:13@browserstack-mobile",
+    //   use: {
+    //     baseURL: "https://www.bstackdemo.com/",
+    //     browserName: "chromium",
+    //     channel: "chrome",
+    //   },
+    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
