@@ -1,7 +1,13 @@
+
 pipeline {
     agent any
-
-
+    
+    browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9', localConfig: [localOptions: '--force-local', localPath: '/Users/vikrant/Downloads/BrowserStackLocal']) {
+    // commands for executing tests
+    sh 'wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-darwin-x64.zip"'
+    sh 'unzip BrowserStackLocal-darwin-x64.zip'
+    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
+    }
     tools {
         nodejs "nodejs-playwright"
     }
@@ -24,6 +30,18 @@ pipeline {
                 }
             }
         }
+
+                        sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop'
+
     }
 
+    post {
+        always {
+            script {
+                // Stop BrowserStack Local after the tests
+                sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop'
+            }
+        }
+    }
 }
+
