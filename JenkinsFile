@@ -1,23 +1,12 @@
 pipeline {
     agent any
 
-    environment {
-        BROWSERSTACK_USERNAME = credentials('browserstack-username')
-        BROWSERSTACK_ACCESS_KEY = credentials('browserstack-accesskey')
-    }
 
     tools {
         nodejs "nodejs-playwright"
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Check out the code from your repository
-                git 'https://github.com/vikrantd1203/Playwright_LocalTesting.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 script {
@@ -37,10 +26,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Collect test reports, logs, etc.
-            archiveArtifacts artifacts: 'test-results/*.xml', allowEmptyArchive: true
-        }
-    }
 }
