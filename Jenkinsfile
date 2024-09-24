@@ -17,7 +17,6 @@ pipeline {
                     // sh 'unzip BrowserStackLocal-darwin-x64.zip'
                     sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'start Local'
-                // sh '<your_test_commands>'
                 // sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop's
                 }
             }
@@ -37,6 +36,7 @@ pipeline {
                 script {
                     // Run Playwright tests with BrowserStack
                     sh 'npm run sample-test'
+                    sh 'npm run sample-local-test'
                 }
             }
         }
