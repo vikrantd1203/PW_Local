@@ -23,6 +23,7 @@ pipeline {
 
         stage('setup2') {
             steps{
+                browserstack
                  {
                     sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'Second Setup'
