@@ -20,7 +20,8 @@ const caps = {
   build: "Local_PW_JenkinsBuild",
   "browserstack.username": process.env.BROWSERSTACK_USERNAME || "<USERNAME>",
   "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY || "<ACCESS_KEY>",
-  "browserstack.local": process.env.BROWSERSTACK_LOCAL || true
+  "browserstack.local": process.env.BROWSERSTACK_LOCAL || true,
+  "browserstak.localIdentifier": process.env.BROWSERSTACK_LOCAL,
 };
 
 //exports.bsLocal = new BrowserStackLocal.Local();
