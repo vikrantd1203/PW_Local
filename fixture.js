@@ -21,7 +21,7 @@ const caps = {
   "browserstack.username": process.env.BROWSERSTACK_USERNAME || "<USERNAME>",
   "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY || "<ACCESS_KEY>",
   "browserstack.local": process.env.BROWSERSTACK_LOCAL || true,
-  "browserstak.localIdentifier": process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
+  "browserstak.localIdentifier": process.env.BROWSERSTACK_LOCAL_IDENTIFIER || "t1",
 };
 
 //exports.bsLocal = new BrowserStackLocal.Local();
