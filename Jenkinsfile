@@ -9,7 +9,6 @@ pipeline {
         stage('setup1') {
             steps{
                 browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9', localConfig: [localOptions: '--force-local', localPath: '']) {
-                    // sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'First Setup'
                     sh 'npm install'
                     sh 'npm run sample-test'
