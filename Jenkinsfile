@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     tools {
@@ -7,11 +8,8 @@ pipeline {
     stages {
         stage('setup1') {
             steps{
-                browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9') {
-                    // sh 'curl -o BrowserStackLocal-darwin-x64.zip "https://www.browserstack.com/browserstack-local/BrowserStackLocal-darwin-x64.zip"'
-                    // sh 'wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"'
-                    // sh 'unzip BrowserStackLocal-darwin-x64.zip'
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
+                browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9', localConfig: [localOptions: '--force-local', localPath: '']) {
+                    // sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'First Setup'
                     sh 'npm install'
                     sh 'npm run sample-test'
@@ -22,7 +20,6 @@ pipeline {
         stage('setup2') {
             steps{
                 browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9') {
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'Second Setup'
                     sh 'npm install'
                     sh 'npm run sample-test'
@@ -33,10 +30,6 @@ pipeline {
         stage('setup3') {
             steps{
                 browserstack(credentialsId: '833c8871-ab95-4280-9199-9c2469b191d9') {
-                    // sh 'curl -o BrowserStackLocal-darwin-x64.zip "https://www.browserstack.com/browserstack-local/BrowserStackLocal-darwin-x64.zip"'
-                    // sh 'wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"'
-                    // sh 'unzip BrowserStackLocal-darwin-x64.zip'
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon start'
                     echo 'Third Setup'
                     sh 'npm install'
                     sh 'npm run sample-test'
@@ -50,6 +43,7 @@ pipeline {
             script {
                 // Stop BrowserStack Local after the tests
                 echo 'Stopping BStack Binary'
+                sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --daemon stop'
             }
         }
     }
