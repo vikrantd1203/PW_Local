@@ -14,8 +14,6 @@ pipeline {
                     sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --local-identifier t1 --daemon start'
                     sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --local-identifier t2 --daemon start'
                     sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --local-identifier t3 --daemon start'
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --local-identifier t3 --daemon start'
-                    sh './BrowserStackLocal --key $BROWSERSTACK_ACCESS_KEY --local-identifier t3 --daemon start'
                     echo 'First Setup'
                     sh 'npm install'
                     sh 'npm run sample-test'

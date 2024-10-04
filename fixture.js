@@ -20,16 +20,16 @@ const caps = {
   build: "Local_PW_JenkinsBuild",
   "browserstack.username": process.env.BROWSERSTACK_USERNAME || "<USERNAME>",
   "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY || "<ACCESS_KEY>",
-  "browserstack.local": process.env.BROWSERSTACK_LOCAL || true,
-  "browserstack.localIdentifier": process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+  "browserstack.local": process.env.BROWSERSTACK_LOCAL || true
 };
 
-exports.bsLocal = new BrowserStackLocal.Local();
+//exports.bsLocal = new BrowserStackLocal.Local();
 
 // replace YOUR_ACCESS_KEY with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
-exports.BS_LOCAL_ARGS = {
+/*exports.BS_LOCAL_ARGS = {
   key: process.env.BROWSERSTACK_ACCESS_KEY || "ACCESSKEY",
 };
+*/
 
 // Patching the capabilities dynamically according to the project name.
 const patchMobileCaps = (name, title) => {
